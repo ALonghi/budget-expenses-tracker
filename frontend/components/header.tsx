@@ -41,7 +41,7 @@ const Header = () => {
                         <div className={`flex justify-items-start overflow-visible min-w-[60%] `}>
                             {navigation.map((link) => (
                                 <Link key={link.name} href={link.href}>
-                                    <p className="text-base font-medium mx-3 text-gray-800 hover:text-indigo-500 cursor-pointer">
+                                    <p className="text-base font-medium mx-3 text-white hover:text-grey-100 cursor-pointer">
                                         {link.name}
                                     </p>
                                 </Link>

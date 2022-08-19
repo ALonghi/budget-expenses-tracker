@@ -16,7 +16,7 @@ const SelectMenu: React.FC<SelectMenuProps> = (props) => {
             <select
                 id={props.label}
                 name={props.label}
-                className={`pl-3 pr-10 py-2 text-base border-gray-300  focus:ring-slate-600 
+                className={`pl-3 pr-8 py-2 text-base border-gray-300  focus:ring-slate-600 
                 focus:border-slate-600 sm:text-sm rounded-md !h-full
                 ${props.selectBoxClasses ? props.selectBoxClasses : ``}`}
                 defaultValue={props.values[0]}

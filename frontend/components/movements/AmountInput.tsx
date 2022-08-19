@@ -25,7 +25,7 @@ const AmountInput: React.FC<AmountInputProps> = (props) => {
                     type="number"
                     name="amount"
                     id="amount"
-                    className="w-7/12 bg-slate-700 focus:ring-indigo-500 focus:border-indigo-500 block border-transparent w-max-fit pl-20 sm:text-sm  rounded-md"
+                    className="w-7/12 bg-slate-700 focus:ring-indigo-500 focus:border-indigo-500 block border-transparent w-max-fit pl-24 pr-4 sm:text-sm  rounded-md"
                     placeholder="10.00"
                 />
             </div>

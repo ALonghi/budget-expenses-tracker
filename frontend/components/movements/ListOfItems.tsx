@@ -63,7 +63,7 @@ const ListOfItems: React.FC<SortableTableProps> = ({movements}) => {
             {groupedMovements?.map((elems: MovementGrouped, index: number) => (
                 <div key={index} className="relative rounded-lg mt-6 shadow-2xl">
                     <div
-                        className="bg-slate-800 z-10 sticky top-0 border-b border-gray-500 rounded-t-lg
+                        className="bg-slate-800 z-0 sticky top-0 border-b border-slate-700 rounded-t-lg
                         px-6 py-1 text-sm font-medium text-gray-500 ">
                         <div className={`flex justify-between `}>
                             <h3 className={`text-gray-200 font-light py-1`}>{elems.date.day === new Date().getDate()
@@ -74,9 +74,9 @@ const ListOfItems: React.FC<SortableTableProps> = ({movements}) => {
                             }</h3>
                         </div>
                     </div>
-                    <ul role="list" className="relative z-0 divide-y divide-gray-600 ">
+                    <ul role="list" className="relative z-0 divide-y divide-gray-700 divide-opacity-70">
                         {elems.data.map((m, i) => (
-                            <li key={i} className="bg-slate-800 rounded-b-lg">
+                            <li key={i} className={`bg-slate-800 ${i === elems.data.length - 1 ? `rounded-b-lg` : ``}`}>
                                 <div
                                     className="relative px-6 py-5 flex items-center space-x-3
                                     focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500">

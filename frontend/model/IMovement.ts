@@ -22,3 +22,5 @@ export enum IMovementType {
     EXPENSE = "Expense",
     INCOME = "Income"
 }
+
+export const MOVEMENT_TYPES = [IMovementType.EXPENSE, IMovementType.INCOME]

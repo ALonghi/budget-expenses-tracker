@@ -152,9 +152,15 @@ const Movements: NextPage = () => {
     ]
     return (
         <div className={`flex mx-auto justify-center flex-col mx-4 relative`}>
-            <h1 className={`my-4 text-lg mr-auto text-white`}>Transactions</h1>
+            <div className={`flex justify-between`}>
+                <h1 className={`my-4 text-lg mr-auto text-white`}>Transactions</h1>
+                <p className={`my-4 mr-4 font-light text-white`}>{mockedMovements
+                    ?.reduce((c, p) => p.amount + c, 0)
+                    ?.toFixed(0)
+                }</p>
+            </div>
             <ListOfItems movements={mockedMovements}/>
-            <AddButton />
+            <AddButton/>
         </div>
     )
 }
