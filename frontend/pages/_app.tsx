@@ -9,6 +9,11 @@ function MyApp({Component, pageProps}: AppProps) {
         <Provider store={store}>
             <Header/>
             <Component {...pageProps} />
+            {process.env.NEXT_PUBLIC_APP_VERSION &&
+                <div className={`w-full`}>
+                  <p className={`my-8 ml-6 text-left  text-slate-600 `}>v {process.env.NEXT_PUBLIC_APP_VERSION}</p>
+                </div>
+            }
         </Provider>
     </>)
 }

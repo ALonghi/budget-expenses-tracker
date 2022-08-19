@@ -26,7 +26,6 @@ const ListOfItems: React.FC<SortableTableProps> = ({movements}) => {
 
     useEffect(() => {
         const elems = groupBy(movements)
-        console.log(`calculated elems ${JSON.stringify(elems, null, 2)}`)
         setGroupedMovements(() => elems)
     }, [])
 

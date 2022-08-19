@@ -111,10 +111,7 @@ const NewMovementPopup: React.FC<NewMovementPopupProps> = ({
                                                             flex justify-space-between items-between
                                                             w-32
                 `}
-                                                        onClick={() => {
-                                                            console.log('called')
-                                                            setShowDatePicker((prev) => !prev)
-                                                        }}
+                                                        onClick={() => setShowDatePicker((prev) => !prev)}
                                                         defaultValue={"Today"}
                                                     >
                                                         <p className={`ml-2 `}>{"Today"}</p>
