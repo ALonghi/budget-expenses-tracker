@@ -57,6 +57,23 @@ const ListOfItems: React.FC<SortableTableProps> = ({movements}) => {
         return map.filter(onlyUnique);
     }
 
+    function getDayName(dateStr: string) {
+        const date = new Date(dateStr);
+        return date.toLocaleDateString("us-US", {weekday: 'short'});
+    }
+
+    const getDateStr = (date: IDate, monthFirst: boolean = false) => {
+        const day = date.day?.toString().padStart(2, '0')
+        const month = date.month?.toString().padStart(2, '0')
+        const year = date.year
+        return monthFirst ? `${month}/${day}/${year}` : `${day}/${month}/${year}`
+    }
+
+    function capitalizeFirstLetter(string: string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+
+
     return (
         <nav className="h-full overflow-y-auto" aria-label="Directory">
             {groupedMovements?.map((elems: MovementGrouped, index: number) => (
@@ -65,24 +82,30 @@ const ListOfItems: React.FC<SortableTableProps> = ({movements}) => {
                         className="bg-slate-800 z-0 sticky top-0 border-b border-slate-700 rounded-t-lg
                         px-6 py-1 text-sm font-medium text-gray-500 ">
                         <div className={`flex justify-between `}>
-                            <h3 className={`text-gray-200 font-light py-1`}>{elems.date.day === new Date().getDate()
+                            <h3 className={`text-gray-400 font-light py-1`}>{elems.date.day === new Date().getDate()
                                 ? 'Today'
                                 : elems.date.day === new Date().getDate() - 1
                                     ? 'Yesterday'
-                                    : `${elems.date.day}/${elems.date.month}/${elems.date.year}`
+                                    : `${getDateStr(elems.date)} `
                             }</h3>
+                            {
+                                elems.date.day < new Date().getDate() - 1 &&
+                                <p className={`text-gray-400 font-extralight py-1 mr-auto ml-3  text-sm`}>
+                                    {capitalizeFirstLetter(getDayName(getDateStr(elems.date, true)))}
+                                </p>
+                            }
                         </div>
                     </div>
                     <ul role="list" className="relative z-0 divide-y divide-gray-700 divide-opacity-70">
                         {elems.data.map((m, i) => (
                             <li key={i} className={`bg-slate-800 ${i === elems.data.length - 1 ? `rounded-b-lg` : ``}`}>
                                 <div
-                                    className="relative px-6 py-5 flex items-center space-x-3
+                                    className="relative px-6 pt-4 pb-3 flex items-center space-x-3
                                     focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500">
                                     <div className="flex-1 min-w-0">
                                         <a href="#" className="focus:outline-none">
                                             <p className="text-sm font-medium text-gray-200">{m.amount} {m.currency}</p>
-                                            <p className="text-sm text-gray-300 truncate">{m.category}</p>
+                                            <p className="text-sm mt-1  text-gray-400 truncate">{m.category}</p>
                                         </a>
                                     </div>
                                 </div>
