@@ -1,6 +1,7 @@
 import type {NextPage} from 'next'
-import ListOfItems from "@components/ListOfItems";
+import ListOfItems from "@components/movements/ListOfItems";
 import IMovement, {ICurrency, IMovementType} from "@model/IMovement";
+import AddButton from "@components/movements/AddButton";
 
 
 const Movements: NextPage = () => {
@@ -150,9 +151,10 @@ const Movements: NextPage = () => {
         }
     ]
     return (
-        <div className={`flex mx-auto justify-center flex-col mx-4`}>
+        <div className={`flex mx-auto justify-center flex-col mx-4 relative`}>
             <h1 className={`my-4 text-lg mr-auto text-white`}>Transactions</h1>
             <ListOfItems movements={mockedMovements}/>
+            <AddButton />
         </div>
     )
 }
