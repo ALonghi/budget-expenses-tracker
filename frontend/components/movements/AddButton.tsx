@@ -12,7 +12,7 @@ export default function AddButton() {
             <NewMovementPopup isOpen={showPopup} categories={["Expenses", "Ecc"]} setIsOpen={(value: boolean) => setShowPopup(value)}/>
             <button
                 type="button"
-                className="fixed bottom-5 right-5 inline-flex items-center p-2 border border-transparent rounded-full shadow-sm text-white
+                className="fixed bottom-7 right-7 inline-flex items-center p-3 border border-transparent rounded-full shadow-sm text-white
                 bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 onClick={() => setShowPopup((prev) => !prev)}
             >
