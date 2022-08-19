@@ -102,6 +102,7 @@ typings/
 
 # Next.js build output
 frontend/.next
+frontend/node_modules
 
 # Nuxt.js build / generate output
 .nuxt
