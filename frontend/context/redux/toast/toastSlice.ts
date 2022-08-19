@@ -21,7 +21,7 @@ export const initialState: ToastState = {
 }
 
 
-export const createNotification = (dispatch, notification: ToastData) => {
+export const createNotification = (dispatch: any, notification: ToastData) => {
     dispatch(addNotificationEvent(notification))
     setTimeout(() => {
         deleteNotification(dispatch, notification.id)
@@ -30,7 +30,7 @@ export const createNotification = (dispatch, notification: ToastData) => {
         : notification.type === `success` ? 3000 : 5000)
 }
 
-export const deleteNotification = (dispatch, notificationId: string) => {
+export const deleteNotification = (dispatch: any, notificationId: string) => {
     dispatch(hideNotificationById(notificationId))
     setTimeout(() => {
         dispatch(clearNotificationEventById(notificationId))
