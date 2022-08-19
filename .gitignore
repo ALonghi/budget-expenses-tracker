@@ -13,7 +13,6 @@ lerna-debug.log*
 **/.dockerignore
 **/Dockerfile
 **/*.iml
-**/*.xml
 
 # debug
 npm-debug.log*
