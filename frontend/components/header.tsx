@@ -1,4 +1,4 @@
-import {ChartBarIcon, CursorClickIcon, DocumentReportIcon, ViewGridIcon, XIcon,} from '@heroicons/react/outline'
+import {ChartBarIcon, CursorClickIcon, XIcon,} from '@heroicons/react/outline'
 import {Fragment} from 'react'
 import {Popover, Transition} from '@headlessui/react'
 import Link from "next/link";
@@ -10,8 +10,8 @@ import {UserState, userStateSelector} from "@context/redux/user/userSlice";
 import {useSelector} from "react-redux";
 
 const navigation = [
-    {name: 'Overview', href: '/overview', icon: DocumentReportIcon},
-    {name: 'Classifications', href: '/classifications', icon: ViewGridIcon},
+    // {name: 'Overview', href: '/overview', icon: DocumentReportIcon},
+    // {name: 'Classifications', href: '/classifications', icon: ViewGridIcon},
     {name: 'Categories', href: '/categories', icon: CursorClickIcon},
     {name: 'Movements', href: '/movements', icon: ChartBarIcon},
 ]

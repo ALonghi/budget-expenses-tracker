@@ -27,7 +27,7 @@ const ListOfItems: React.FC<SortableTableProps> = ({movements}) => {
     useEffect(() => {
         const elems = groupBy(movements)
         setGroupedMovements(() => elems)
-    }, [])
+    }, [movements])
 
     function groupBy(list: IMovement[]) {
         let map: MovementGrouped[] = [];
