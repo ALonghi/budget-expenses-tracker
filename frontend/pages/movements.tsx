@@ -1,9 +1,10 @@
 import type {NextPage} from 'next'
 import ListOfItems from "@components/movements/ListOfItems";
-import IMovement, {ICurrency, IMovementType} from "@model/IMovement";
+import {IMovementType, Movement} from "@model/IMovement";
 import AddButton from "@components/movements/AddButton";
 import {ArrowLeftIcon, ArrowRightIcon} from '@heroicons/react/outline'
 import {useEffect, useState} from "react";
+import {ICurrency} from "@model/ICurrency";
 
 const mockedMovements = [
     {
@@ -152,7 +153,7 @@ const mockedMovements = [
 ]
 
 const Movements: NextPage = () => {
-    const [movements, setMovements] = useState<IMovement[]>([])
+    const [movements, setMovements] = useState<Movement[]>([])
     const [isLoading, setLoading] = useState(false)
 
     useEffect(() => {

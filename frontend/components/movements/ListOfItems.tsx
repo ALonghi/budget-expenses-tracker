@@ -1,8 +1,8 @@
-import IMovement from "@model/IMovement";
+import {Movement} from "@model/IMovement";
 import {useEffect, useState} from "react";
 
 interface SortableTableProps {
-    movements: IMovement[]
+    movements: Movement[]
 }
 
 const isOfSameDay = (first: IDate, second: IDate) =>
@@ -18,7 +18,7 @@ interface IDate {
 
 interface MovementGrouped {
     date: IDate,
-    data: IMovement[]
+    data: Movement[]
 }
 
 const ListOfItems: React.FC<SortableTableProps> = ({movements}) => {
@@ -29,14 +29,14 @@ const ListOfItems: React.FC<SortableTableProps> = ({movements}) => {
         setGroupedMovements(() => elems)
     }, [movements])
 
-    function groupBy(list: IMovement[]) {
+    function groupBy(list: Movement[]) {
         let map: MovementGrouped[] = [];
 
         function onlyUnique(value: any, index: number, self: any) {
             return self.indexOf(value) === index;
         }
 
-        list.forEach((item: IMovement) => {
+        list.forEach((item: Movement) => {
             const mapKeys = map.map(e => e.date.day).filter(onlyUnique)
             const itemDate: IDate = {
                 day: item.day,
@@ -105,7 +105,6 @@ const ListOfItems: React.FC<SortableTableProps> = ({movements}) => {
                                     <div className="flex-1 min-w-0">
                                         <a href="#" className="focus:outline-none">
                                             <p className="text-sm font-medium text-gray-200">{m.amount} {m.currency}</p>
-                                            <p className="text-sm mt-1  text-gray-400 truncate">{m.category}</p>
                                         </a>
                                     </div>
                                 </div>
